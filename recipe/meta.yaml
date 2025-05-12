@@ -18,8 +18,7 @@ build:
 outputs:
   - name: lsstdesc-bpz
     version: {{ version }}
-    build:
-      script: build_me.sh
+    script: build_me.sh
     requirements:
       host:
         - python {{ python_min }}
