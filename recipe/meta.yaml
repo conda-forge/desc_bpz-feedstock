@@ -1,9 +1,10 @@
 {% set name = "DESC_BPZ" %}
 {% set version = "0.3.2" %}
+{% set build = 1 %}
 {% set python_min = "3.10" %}
 
 package:
-  name: {{ name|lower }}
+  name: desc-bpz-split
   version: {{ version }}
 
 source:
@@ -11,34 +12,52 @@ source:
   sha256: eb145abf3d7a326f0b817dee87e8c069d27517c659720485722b5a4c323bb180
 
 build:
+  number: 1
   noarch: python
-  script: {{ PYTHON }} -m pip install . -vv --no-deps --no-build-isolation
-  number: 0
 
-requirements:
-  host:
-    - python {{ python_min }}
-    - setuptools >=62
-    - setuptools-scm >=6.2
-    - pip
-  run:
-    - python >={{ python_min }}
-    - numpy
-    - scipy
-    - pandas >=1.1
-    - h5py
+outputs:
+  - name: lsstdesc-bpz
+    version: {{ version }}
+    script: build_me.sh
+    requirements:
+      host:
+        - python {{ python_min }}
+        - setuptools >=62
+        - setuptools-scm >=6.2
+        - pip
+      run:
+        - python >={{ python_min }}
+        - numpy
+        - scipy
+        - pandas >=1.1
+        - h5py
+    test:
+      imports:
+        - desc_bpz
+      commands:
+        - pip check
+      requires:
+        - python {{ python_min }}
+        - pip
 
-test:
-  imports:
-    - desc_bpz
-  commands:
-    - pip check
-  requires:
-    - python {{ python_min }}  
-    - pip
+  - name: {{ name|lower }}
+    version: {{ version }}
+    requirements:
+      host:
+        - python {{ python_min }}
+      run:
+        - python >={{ python_min }}
+        - {{ pin_subpackage('lsstdesc-bpz', exact=True) }}
+    test:
+      imports:
+        - desc_bpz
+      commands:
+        - pip check
+      requires:
+        - python {{ python_min }}
+        - pip
 
 about:
-
   home: http://github.com/LSSTDESC/DESC_BPZ
   license: MIT
   license_family: MIT
@@ -49,6 +68,8 @@ about:
   dev_url: https://github.com/LSSTDESC/DESC_BPZ
 
 extra:
+  feedstock-name: desc_bpz
   recipe-maintainers:
     - eacharles
     - sschmidt23
+    - beckermr

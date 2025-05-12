@@ -33,6 +33,7 @@ Current release info
 | Name | Downloads | Version | Platforms |
 | --- | --- | --- | --- |
 | [![Conda Recipe](https://img.shields.io/badge/recipe-desc__bpz-green.svg)](https://anaconda.org/conda-forge/desc_bpz) | [![Conda Downloads](https://img.shields.io/conda/dn/conda-forge/desc_bpz.svg)](https://anaconda.org/conda-forge/desc_bpz) | [![Conda Version](https://img.shields.io/conda/vn/conda-forge/desc_bpz.svg)](https://anaconda.org/conda-forge/desc_bpz) | [![Conda Platforms](https://img.shields.io/conda/pn/conda-forge/desc_bpz.svg)](https://anaconda.org/conda-forge/desc_bpz) |
+| [![Conda Recipe](https://img.shields.io/badge/recipe-lsstdesc--bpz-green.svg)](https://anaconda.org/conda-forge/lsstdesc-bpz) | [![Conda Downloads](https://img.shields.io/conda/dn/conda-forge/lsstdesc-bpz.svg)](https://anaconda.org/conda-forge/lsstdesc-bpz) | [![Conda Version](https://img.shields.io/conda/vn/conda-forge/lsstdesc-bpz.svg)](https://anaconda.org/conda-forge/lsstdesc-bpz) | [![Conda Platforms](https://img.shields.io/conda/pn/conda-forge/lsstdesc-bpz.svg)](https://anaconda.org/conda-forge/lsstdesc-bpz) |
 
 Installing desc_bpz
 ===================
@@ -44,16 +45,16 @@ conda config --add channels conda-forge
 conda config --set channel_priority strict
 ```
 
-Once the `conda-forge` channel has been enabled, `desc_bpz` can be installed with `conda`:
+Once the `conda-forge` channel has been enabled, `desc_bpz, lsstdesc-bpz` can be installed with `conda`:
 
 ```
-conda install desc_bpz
+conda install desc_bpz lsstdesc-bpz
 ```
 
 or with `mamba`:
 
 ```
-mamba install desc_bpz
+mamba install desc_bpz lsstdesc-bpz
 ```
 
 It is possible to list all of the versions of `desc_bpz` available on your platform with `conda`:
@@ -148,6 +149,7 @@ In order to produce a uniquely identifiable distribution:
 Feedstock Maintainers
 =====================
 
+* [@beckermr](https://github.com/beckermr/)
 * [@eacharles](https://github.com/eacharles/)
 * [@sschmidt23](https://github.com/sschmidt23/)
 
