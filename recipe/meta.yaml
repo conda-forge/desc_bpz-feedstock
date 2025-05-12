@@ -13,13 +13,13 @@ source:
 
 build:
   number: 1
+  noarch: python
 
 outputs:
   - name: lsstdesc-bpz
     version: {{ version }}
     build:
-      noarch: python
-      script: {{ PYTHON }} -m pip install . -vv --no-deps --no-build-isolation
+      script: build_me.sh
     requirements:
       host:
         - python {{ python_min }}
@@ -43,8 +43,6 @@ outputs:
 
   - name: {{ name|lower }}
     version: {{ version }}
-    build:
-      noarch: python
     requirements:
       host:
         - python {{ python_min }}
