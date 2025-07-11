@@ -11,13 +11,17 @@ source:
   url: https://pypi.org/packages/source/{{ name[0] }}/{{ name }}/desc_bpz-{{ version }}.tar.gz
   sha256: eb145abf3d7a326f0b817dee87e8c069d27517c659720485722b5a4c323bb180
 
+
 build:
-  number: 1
+  number: {{ build }}
   noarch: python
 
 outputs:
   - name: lsstdesc-bpz
     version: {{ version }}
+    build:
+      number: {{ build }}
+      noarch: python
     script: build_me.sh
     requirements:
       host:
@@ -42,6 +46,9 @@ outputs:
 
   - name: {{ name|lower }}
     version: {{ version }}
+    build:
+      number: {{ build }}
+      noarch: python
     requirements:
       host:
         - python {{ python_min }}
