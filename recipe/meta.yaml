@@ -1,6 +1,6 @@
 {% set name = "DESC_BPZ" %}
-{% set version = "0.3.2" %}
-{% set build = 1 %}
+{% set version = "0.3.3" %}
+{% set build = 0 %}
 {% set python_min = "3.10" %}
 
 package:
@@ -9,7 +9,7 @@ package:
 
 source:
   url: https://pypi.org/packages/source/{{ name[0] }}/{{ name }}/desc_bpz-{{ version }}.tar.gz
-  sha256: eb145abf3d7a326f0b817dee87e8c069d27517c659720485722b5a4c323bb180
+  sha256: 40ed4f200a6bf2107ca52a4b0441339274034ad8f3351a3b8dbf44ad09637ca1
 
 
 build:
